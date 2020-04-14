@@ -50,6 +50,7 @@ install:
 before_script: 
 - echo $GPG_PRIVATE_KEY | tr ',' '\n' > private_key.gpg
 - gpg --import private_key.gpg
+- git secret tell zhuofusong@gmail.com
 - git secret reveal
 script:
 - pytest --cov-config=.coveragerc --cov=backend
