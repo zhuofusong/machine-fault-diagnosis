@@ -1,0 +1,59 @@
+sudo: required
+branches:
+  only:
+    - master
+dist: xenial
+cache:
+  directories:
+    - $HOME/.cache/pip
+matrix:
+  include:
+  - language: python
+    name: Python 3.6 on Xenial
+    python: 3.6
+    env: TEST_SUITE=Xenial_Py36
+  - language: python
+    python: 3.6
+    name: Python 3.6 on MacOS
+    os: osx
+    osx_image: xcode11.3
+    env: TEST_SUITE=Mac_Py36
+  - language: python
+    name: Python 3.8 on Xenial
+    python: 3.8
+    env: TEST_SUITE=Xenial_Py36
+  - language: python
+    python: 3.8
+    name: Python 3.8 on MacOS
+    os: osx
+    osx_image: xcode11.3
+    env: TEST_SUITE=Mac_Py36
+  allow_failures:
+    - language: python
+      python: 3.6
+      name: Python 3.6 on MacOS
+      os: osx
+      osx_image: xcode11.3
+      env: TEST_SUITE=Mac_Py36
+    - language: python
+      python: 3.8
+      name: Python 3.8 on MacOS
+      os: osx
+      osx_image: xcode11.3
+      env: TEST_SUITE=Mac_Py36
+  fast_finish: true
+install:
+  - pip install -r requirements.txt
+before_script:
+script:
+  - pytest   # run integration tests
+after_success:  
+  - codecov  # upload coverage data
+  - coveralls
+notifications:
+  slack:
+    rooms:  # the following is the encrypted slack channel id for collecting messages
+      - secure: 
+    on_success: always
+    on_failure: always
+  email: false
