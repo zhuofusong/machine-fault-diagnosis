@@ -12,41 +12,48 @@ matrix:
     name: Python 3.6 on Xenial
     python: 3.6
     env: TEST_SUITE=Xenial_Py36
-  - language: shell
-    python: 3.6
-    name: Python 3.6 on MacOS
-    os: osx
-    osx_image: xcode11.3
-    env: TEST_SUITE=Mac_Py36
+  # - language: shell
+  #   python: 3.6
+  #   name: Python 3.6 on MacOS
+  #   os: osx
+  #   osx_image: xcode11.3
+  #   env: TEST_SUITE=Mac_Py36
   - language: python
     name: Python 3.8 on Xenial
     python: 3.8
     env: TEST_SUITE=Xenial_Py36
-  - language: shell
-    python: 3.8
-    name: Python 3.8 on MacOS
-    os: osx
-    osx_image: xcode11.3
-    env: TEST_SUITE=Mac_Py36
-  allow_failures:
-  - language: python
-    python: 3.6
-    name: Python 3.6 on MacOS
-    os: osx
-    osx_image: xcode11.3
-    env: TEST_SUITE=Mac_Py36
-  - language: python
-    python: 3.8
-    name: Python 3.8 on MacOS
-    os: osx
-    osx_image: xcode11.3
-    env: TEST_SUITE=Mac_Py36
-  fast_finish: true
+  # - language: shell
+  #   python: 3.8
+  #   name: Python 3.8 on MacOS
+  #   os: osx
+  #   osx_image: xcode11.3
+  #   env: TEST_SUITE=Mac_Py36
+  # allow_failures:
+  # - language: python
+  #   python: 3.6
+  #   name: Python 3.6 on MacOS
+  #   os: osx
+  #   osx_image: xcode11.3
+  #   env: TEST_SUITE=Mac_Py36
+  # - language: python
+  #   python: 3.8
+  #   name: Python 3.8 on MacOS
+  #   os: osx
+  #   osx_image: xcode11.3
+  #   env: TEST_SUITE=Mac_Py36
+  # fast_finish: true
 install:
+- echo "deb https://dl.bintray.com/sobolevn/deb git-secret main" | sudo tee -a /etc/apt/sources.list
+- wget -qO - https://api.bintray.com/users/sobolevn/keys/gpg/public.key | sudo apt-key add -
+- sudo apt-get update && sudo apt-get install git-secret
 - pip install -r requirements.txt
 before_script: 
+- echo $GPG_PRIVATE_KEY | tr ',' '\n' > ./private_key.gpg
+- gpg --import ./private_key.gpg
+- git secret reveal
 script:
 - pytest --cov-config=.coveragerc --cov=backend
+- python backend/servers/server.py
 after_success:
 - codecov
 - coveralls

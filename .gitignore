@@ -1,4 +1,6 @@
 .DS_store
+credentials
+.env
 virenv
 .gitsecret/keys/random_seed
 !*.secret
