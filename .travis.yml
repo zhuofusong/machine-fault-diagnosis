@@ -48,8 +48,8 @@ install:
 - sudo apt-get update && sudo apt-get install git-secret
 - pip install -r requirements.txt
 before_script: 
-- echo $GPG_PRIVATE_KEY | tr ',' '\n' > ./private_key.gpg
-- gpg --import ./private_key.gpg
+- echo $GPG_PRIVATE_KEY | tr ',' '\n' > private_key.gpg
+- gpg --import private_key.gpg
 - git secret reveal
 script:
 - pytest --cov-config=.coveragerc --cov=backend
