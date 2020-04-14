@@ -1,18 +1,18 @@
 sudo: required
 branches:
   only:
-    - master
+  - master
 dist: xenial
 cache:
   directories:
-    - $HOME/.cache/pip
+  - "$HOME/.cache/pip"
 matrix:
   include:
   - language: python
     name: Python 3.6 on Xenial
     python: 3.6
     env: TEST_SUITE=Xenial_Py36
-  - language: python
+  - language: shell
     python: 3.6
     name: Python 3.6 on MacOS
     os: osx
@@ -22,38 +22,35 @@ matrix:
     name: Python 3.8 on Xenial
     python: 3.8
     env: TEST_SUITE=Xenial_Py36
-  - language: python
+  - language: shell
     python: 3.8
     name: Python 3.8 on MacOS
     os: osx
     osx_image: xcode11.3
     env: TEST_SUITE=Mac_Py36
   allow_failures:
-    - language: python
-      python: 3.6
-      name: Python 3.6 on MacOS
-      os: osx
-      osx_image: xcode11.3
-      env: TEST_SUITE=Mac_Py36
-    - language: python
-      python: 3.8
-      name: Python 3.8 on MacOS
-      os: osx
-      osx_image: xcode11.3
-      env: TEST_SUITE=Mac_Py36
+  - language: python
+    python: 3.6
+    name: Python 3.6 on MacOS
+    os: osx
+    osx_image: xcode11.3
+    env: TEST_SUITE=Mac_Py36
+  - language: python
+    python: 3.8
+    name: Python 3.8 on MacOS
+    os: osx
+    osx_image: xcode11.3
+    env: TEST_SUITE=Mac_Py36
   fast_finish: true
 install:
-  - pip install -r requirements.txt
-before_script:
+- pip install -r requirements.txt
+before_script: 
 script:
-  - pytest   # run integration tests
-after_success:  
-  - codecov  # upload coverage data
-  - coveralls
+- pytest --cov-config=.coveragerc --cov=backend
+after_success:
+- codecov
+- coveralls
 notifications:
   slack:
-    rooms:  # the following is the encrypted slack channel id for collecting messages
-      - secure: 
-    on_success: always
-    on_failure: always
+    secure: Eli1Ki7/+9S/bgYrFPHyxpqjl+s/uLoJ89mExslkMPzITPfa49542ay07n+m/aaWaCJAEsddx6bzeeWGLRAFiw8lJtaKYXI9Pt4FC9F3jxQLTbBHC4m/OnfnkKah8HEUWBVPdPbcXvNQGNiXKOE+rCfmM7vRc1mtEpbq37Vrmz3PljyihkADMi/MMYZSGiPgjADWi3Hym6jwQ7dVZEV3aTmvmvhXqHePfjwvafNZk86/higSvuLU6607+lsDQa7e4VQayCBXPGGNf+GALv3kfuc31zwP82Ku6UDZRWRgKPSiFbqS2Pdrvn9J9CiNexKNxS3WQ5L+R5fmbLJGnqvHPTO8EjRiqagRgEeUGm1gQdJ12QLjE++nFel/oisllnMsnIj8rqH6CzFPNsroZoatcH4eZHsyh4R+KrQfZuclMtzkwRsW1yu2qeT8TztQbB81hCRbzCCUp97mgqvpe+DfyLn37Xekv7ITsq6CMuXKoAkZUZVvRBqKhWYxChvSP6/4xwwWbgJHiC0TMqCeik0H7igva6L/TnOuKSE8X3y8/xe2CgJLW4wEU5ELZ9I1NLo5CsuqT45FbXKxEklQFXDGOBSYnTnDZyTsZUXM34LPaV7AUn+l3b2SReJ6w4WtBABniLvnh8+3wmN4l8tm8qrG1CMHgb75Vi4Ag36SYNHfuQ0=
   email: false

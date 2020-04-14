@@ -1,2 +1,6 @@
 numpy
 pybrake
+pytest
+codecov
+python-coveralls
+pytest-cov
