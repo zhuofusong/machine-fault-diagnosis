@@ -1,6 +1,15 @@
+.vscode
 .DS_store
 credentials
 .env
+.env_copy
 virenv
+backend/build
+backend/dist
+machine_fault_diagnosis.egg*
 .gitsecret/keys/random_seed
 !*.secret
+
+.fake
+.ionide
+backend/.pypirc
