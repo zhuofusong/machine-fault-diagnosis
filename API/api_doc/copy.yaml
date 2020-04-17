@@ -1,0 +1,1063 @@
+openapi: 3.0.0
+info:
+  title: Machine fault diagnosis
+  description: List of top level server APIs
+  version: 1.0.0
+servers:
+- url: https://virtserver.swaggerhub.com/zhuofusong/machine-fault-diagnosis/1.0.0
+  description: Machine-fault-diagnosis backend server
+security:
+- application:
+  - read
+  - write
+paths:
+  # model flows management
+  /modelFlow:
+    get:
+      tags:
+        - model flow
+      summary: get a list of all model flow charts
+      description: Get a list of all model flow charts
+      parameters:
+      - name: modelFlowSearchString
+        in: query
+        description: the string for searching for model flow charts
+        required: false
+        allowEmptyValue: true
+        style: form
+        explode: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: a list of model flow charts returned
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/modelFlowChartMeta'
+        "400":
+          description: input is invalid
+        "404":
+          description: No model flow chart satisfies the search criteria
+        "500":
+          description: internal server error
+    delete:
+      tags:
+        - model flow
+      summary: delete a list of model flow charts
+      description: delete a list of model flow charts
+      parameters:
+      - name: modelFlowSearchString
+        in: query
+        description: the string for searching for model flow charts
+        required: false
+        allowEmptyValue: true
+        style: form
+        explode: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: the list of model flow charts deleted
+          content:
+            application/json:
+              schema:
+                type: object
+        "400":
+          description: input is invalid
+        "404":
+          description: No model flow chart satisfies the search criteria
+        "500":
+          description: internal server error
+
+  # model flow chart management
+  /modelFlow/{modelFlowId}:
+    get:
+      tags:
+        - model flow chart
+      summary: retrieve a model flow chart
+      description: retrieve a model flow chart
+      parameters:
+      - name: modelFlowId
+        in: path
+        description: model flow chart id
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: model flow chart returned
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/modelFlowChartMeta'
+        "400":
+          description: input is invalid
+        "404":
+          description: no model flow chart satisfies the search criteria
+        "500":
+          description: internal server error
+    delete:
+      tags:
+        - model flow chart
+      summary: delete a model flow chart
+      description: delete a model flow chart
+      parameters:
+      - name: modelFlowId
+        in: path
+        description: model flow chart id
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: deleted a model flow chart
+          content:
+            application/json:
+              schema:
+                type: object
+        "400":
+          description: input is invalid
+        "404":
+          description: no model flow chart satisfies the search criteria
+        "500":
+          description: internal server error
+    post:
+      tags:
+        - model flow chart
+      summary: create a model flow chart
+      description: create a model flow chart
+      parameters:
+      - name: modelFlowId
+        in: path
+        description: model flow chart id
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      - name: modelFlowChart
+        in: query
+        description: model flow chart
+        required: true
+        style: form
+        explode: true
+        schema:
+          $ref: '#/components/schemas/modelFlowChart'
+      responses:
+        "200":
+          description: model flow chart successfully created
+          content:
+            application/json:
+              schema:
+                type: object
+        "400":
+          description: invalid model flow chart input
+        "500":
+          description: internal server error
+    put:
+      tags:
+        - model flow chart
+      summary: update a model flow chart
+      description: update a model flow chart
+      parameters:
+      - name: modelFlowId
+        in: path
+        description: model flow chart id
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      - name: modelFlowChart
+        in: query
+        description: model flow chart
+        required: true
+        style: form
+        explode: true
+        schema:
+          $ref: '#/components/schemas/modelFlowChart'
+      responses:
+        "200":
+          description: model flow chart successfully created
+          content:
+            application/json:
+              schema:
+                type: object
+        "400":
+          description: invalid model flow chart input
+        "500":
+          description: internal server error
+
+  # model flow chart nodes management
+  /modelFlow/node/{modelFlowId}/{nodeId}:
+    get:
+      tags:
+        - model flow chart node
+      summary: retrieve a node's information in a model flow chart
+      description: retrieve a node's information in a model flow chart
+      parameters:
+      - name: modelFlowId
+        in: path
+        description: model flow chart id
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      - name: nodeId
+        in: path
+        description: node's id in a model flow chart
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: node returned
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/modelFlowChartNodeMeta'
+        "400":
+          description: input is invalid
+        "404":
+          description: model flow chart node not found
+        "500":
+          description: internal server error
+    delete:
+      tags:
+        - model flow chart node
+      summary: delete a node's information in a model flow chart
+      description: delete a node's information in a model flow chart
+      parameters:
+      - name: modelFlowId
+        in: path
+        description: model flow chart id
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      - name: nodeId
+        in: path
+        description: node's id in a model flow chart
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: node deleted
+          content:
+            application/json:
+              schema:
+                type: object
+        "400":
+          description: input is invalid
+        "404":
+          description: model flow chart node not found
+        "500":
+          description: internal server error
+    post:
+      tags:
+        - model flow chart node
+      summary: create a node's information in a model flow chart
+      description: create a node's information in a model flow chart
+      parameters:
+      - name: modelFlowId
+        in: path
+        description: model flow chart id
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      - name: nodeId
+        in: path
+        description: node's id in a model flow chart
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: node created
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/modelFlowChartNodeMeta'
+        "400":
+          description: input is invalid
+        "404":
+          description: model flow chart not found. create one first.
+        "500":
+          description: internal server error
+    put:
+      tags:
+        - model flow chart node
+      summary: update a node's information in a model flow chart
+      description: update a node's information in a model flow chart
+      parameters:
+      - name: modelFlowId
+        in: path
+        description: model flow chart id
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      - name: nodeId
+        in: path
+        description: node's id in a model flow chart
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: node updated
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/modelFlowChartNodeMeta'
+        "400":
+          description: input is invalid
+        "404":
+          description: model flow chart not found. create one first.
+        "500":
+          description: internal server error
+
+  # model flow chart edges management
+  /modelFlow/node/{modelFlowId}/{edgeId}:
+    get:
+      tags:
+        - model flow chart edge
+      summary: retrieve an edge's information in a model flow chart
+      description: retrieve an edge's information in a model flow chart
+      parameters:
+      - name: modelFlowId
+        in: path
+        description: model flow chart id
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      - name: edgeId
+        in: path
+        description: edge's id in a model flow chart
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: edge returned
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/modelFlowChartEdgeMeta'
+        "400":
+          description: input is invalid
+        "404":
+          description: model flow chart edge not found
+        "500":
+          description: internal server error
+    delete:
+      tags:
+        - model flow chart edge
+      summary: delete an edge's information in a model flow chart
+      description: delete an edge's information in a model flow chart
+      parameters:
+      - name: modelFlowId
+        in: path
+        description: model flow chart id
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      - name: edgeId
+        in: path
+        description: edge's id in a model flow chart
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: edge deleted
+          content:
+            application/json:
+              schema:
+                type: object
+        "400":
+          description: input is invalid
+        "404":
+          description: model flow chart edge not found
+        "500":
+          description: internal server error
+    post:
+      tags:
+        - model flow chart edge
+      summary: create an edge's information in a model flow chart
+      description: create an edge's information in a model flow chart
+      parameters:
+      - name: modelFlowId
+        in: path
+        description: model flow chart id
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      - name: edgeId
+        in: path
+        description: edge's id in a model flow chart
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: edge created
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/modelFlowChartEdgeMeta'
+        "400":
+          description: input is invalid
+        "404":
+          description: model flow chart not found. create one first.
+        "500":
+          description: internal server error
+    put:
+      tags:
+        - model flow chart edge
+      summary: update an edge's information in a model flow chart
+      description: update an edge's information in a model flow chart
+      parameters:
+      - name: modelFlowId
+        in: path
+        description: model flow chart id
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      - name: edgeId
+        in: path
+        description: edge's id in a model flow chart
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: edge updated
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/modelFlowChartEdgeMeta'
+        "400":
+          description: input is invalid
+        "404":
+          description: model flow chart not found. create one first.
+        "500":
+          description: internal server error
+
+# model flow chart node components management
+  /modelFlow/node/{modelFlowId}/{nodeId}/component:
+    get:
+      tags:
+        - model flow chart node component
+      summary: retrieve a node's components information in a model flow chart
+      description: retrieve a node's components information in a model flow chart
+      parameters:
+      - name: modelFlowId
+        in: path
+        description: model flow chart id
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      - name: nodeId
+        in: path
+        description: node's id in a model flow chart
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: components returned
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/modelFlowChartNodeComponentMeta'
+        "400":
+          description: input is invalid
+        "404":
+          description: model flow chart node component not found
+        "500":
+          description: internal server error
+    delete:
+      tags:
+        - model flow chart node component
+      summary: delete a node's components information in a model flow chart
+      description: delete a node's components information in a model flow chart
+      parameters:
+      - name: modelFlowId
+        in: path
+        description: model flow chart id
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      - name: nodeId
+        in: path
+        description: node's id in a model flow chart
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: all components deleted
+          content:
+            application/json:
+              schema:
+                type: object
+        "400":
+          description: input is invalid
+        "404":
+          description: model flow chart node component not found
+        "500":
+          description: internal server error
+    post:
+      tags:
+        - model flow chart node component
+      summary: create a node's components information in a model flow chart
+      description: create a node's information in a model flow chart
+      parameters:
+      - name: modelFlowId
+        in: path
+        description: model flow chart id
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      - name: nodeId
+        in: path
+        description: node's id in a model flow chart
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: node component created
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/modelFlowChartNodeComponentMeta'
+        "400":
+          description: input is invalid
+        "404":
+          description: model flow chart not found. create one first.
+        "500":
+          description: internal server error
+    put:
+      tags:
+        - model flow chart node component
+      summary: update a node's components information in a model flow chart
+      description: update a node's information in a model flow chart
+      parameters:
+      - name: modelFlowId
+        in: path
+        description: model flow chart id
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      - name: nodeId
+        in: path
+        description: node's id in a model flow chart
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: node component created
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/modelFlowChartNodeComponentMeta'
+        "400":
+          description: input is invalid
+        "404":
+          description: model flow chart not found. create one first.
+        "500":
+          description: internal server error
+
+# model flow chart extensions management
+  /modelFlow/{modelFlowId}/extension:
+    get:
+      tags:
+        - model flow chart extension
+      summary: retrieve a model flow chart extension
+      description: retrieve a model flow chart extension
+      parameters:
+      - name: modelFlowId
+        in: path
+        description: model flow chart id
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: model flow chart returned
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/modelFlowChartExtensionMeta'
+        "400":
+          description: input is invalid
+        "404":
+          description: no model flow chart extension found
+        "500":
+          description: internal server error
+    delete:
+      tags:
+        - model flow chart extension
+      summary: delete a model flow chart extension
+      description: delete a model flow chart extension
+      parameters:
+      - name: modelFlowId
+        in: path
+        description: model flow chart id
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: deleted a model flow chart extension
+          content:
+            application/json:
+              schema:
+                type: object
+        "400":
+          description: input is invalid
+        "404":
+          description: no model flow chart found
+        "500":
+          description: internal server error
+    post:
+      tags:
+        - model flow chart extension
+      summary: create a model flow chart extension
+      description: create a model flow chart extension
+      parameters:
+      - name: modelFlowId
+        in: path
+        description: model flow chart id
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      - name: modelFlowChartExtension
+        in: query
+        description: model flow chart extension
+        required: true
+        style: form
+        explode: true
+        schema:
+          $ref: '#/components/schemas/modelFlowChartExtensionMeta'
+      responses:
+        "200":
+          description: model flow chart extension successfully created
+          content:
+            application/json:
+              schema:
+                type: object
+        "400":
+          description: invalid model flow chart extension input
+        "500":
+          description: internal server error
+    put:
+      tags:
+        - model flow chart extension
+      summary: update a model flow chart extension
+      description: update a model flow chart extension
+      parameters:
+      - name: modelFlowId
+        in: path
+        description: model flow chart id
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      - name: modelFlowChartExtension
+        in: query
+        description: model flow chart extension
+        required: true
+        style: form
+        explode: true
+        schema:
+          $ref: '#/components/schemas/modelFlowChartExtensionMeta'
+      responses:
+        "200":
+          description: model flow chart successfully updated
+          content:
+            application/json:
+              schema:
+                type: object
+        "400":
+          description: invalid model flow chart extension input
+        "500":
+          description: internal server error
+
+# model flow chart validation
+  /modelFlow/validation/{kind}/{id}:
+    post:
+      tags:
+        - model flow chart validation
+      summary: validation of all kinds of objects
+      description: validation of all kinds of objects
+      parameters:
+      - name: kind
+        in: path
+        description: what kind of object to validate
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      - name: id
+        in: path
+        description: id of the object to be validated
+        required: true
+        style: simple
+        explode: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: passed validation
+          content:
+            application/json:
+              schema:
+                type: object
+        "400":
+          description: object is not valid
+        "500":
+          description: internal server error
+
+components:
+
+  schemas:
+
+    modelFlowChartMeta:   
+      required:
+      - id
+      - kind
+      type: object
+      properties:
+        id:
+          type: string
+        kind:
+          type: string
+        createdTime:
+          type: number
+        lastModifiedTime:
+          type: number
+        author:
+          type: string
+        editMode:
+          type: string
+        config:
+          type: object
+        comments:
+          type: string
+
+    modelFlowChart:
+      required:
+      - id
+      - graph
+      type: object
+      properties:
+        id:
+          type: string
+        graph:
+          required:
+            - nodes
+            - edges
+          type: object
+          properties:
+            nodes:
+              type: array
+              items:
+                $ref: '#/components/schemas/modelFlowChartNodeMeta'
+            node_components:
+              type: array
+              items:
+                $ref: '#/components/schemas/modelFlowChartNodeComponentMeta'
+            edges:
+              type: array
+              items:
+                $ref: '#/components/schemas/modelFlowChartEdgeMeta'
+            extensions:
+              type: array
+              items:
+                $ref: '#/components/schemas/modelFlowChartExtensionMeta'
+        
+    modelFlowChartNodeMeta:
+      required:
+      - id
+      - kind
+      type: object
+      properties:
+        id:
+          type: string
+        kind:
+          type: string
+          description: what kind of node it is. A 'simple' node or a supernode.
+        createdTime:
+          type: number
+        modifiedTime:
+          type: number
+        author:
+          type: string
+        comments:
+          type: string  
+
+    modelFlowChartNode:
+      required:
+      - id
+      type: object
+      properties:
+        id:
+          type: string
+        fixed_config:
+          type: object
+          description: user-defined fixed config
+        linked_edges:
+          type: array
+          description: all incoming and outgoing edges
+          items:
+            type: object
+            properties:
+              direction: 
+                type: string
+              edge_data_flow: 
+                type: object
+                description: variable mapping between two nodes
+        contained_components_id:
+          type: string
+          description: the id of the corresponding node components
+        scripts:
+          type: string
+          description: location in DB for retrieval of this node's scripts
+        
+    modelFlowChartNodeComponentMeta:
+      required:
+      - id
+      - kind
+      type: object
+      properties:
+        id:
+          type: string
+        kind:
+          type: string
+          description: what kind of node component it is
+        createdTime:
+          type: number
+        modifiedTime:
+          type: number
+        author:
+          type: string
+        comments:
+          type: string 
+
+    modelFlowChartNodeComponent:
+      required:
+      - id
+      type: object
+      properties:
+        id:
+          type: string
+        linked_node_id:
+          type: string
+        fixed_config:
+          type: object
+          description: user-defined fixed config
+        component_sub_graph:
+          $ref: '#/components/schemas/modelFlowChart'
+
+    modelFlowChartEdgeMeta:
+      required:
+      - id
+      - kind
+      type: object
+      properties:
+        id:
+          type: string
+        kind:
+          type: string
+          description: the kind of string based on which 
+        createdTime:
+          type: number
+        modifiedTime:
+          type: number
+        author:
+          type: string
+        comments:
+          type: string  
+
+    modelFlowChartEdge:
+      required:
+      - id
+      type: object
+      properties:
+        id:
+          type: string
+        fixed_config:
+          type: string
+          description: user-defined fixed configurations
+        linked_nodes:
+          type: array
+          items:
+            type: object
+            description: key is the node id. value is which end of the edge it is linked with
+        scripts:
+          type: string
+          description: the address in DB where it is stored
+
+    modelFlowChartExtensionMeta:
+      required:
+      - id
+      - kind
+      type: object
+      properties:
+        id:
+          type: string
+        kind:
+          type: string
+          description: what kind of extensions it is based on
+        createdTime:
+          type: number
+        modifiedTime:
+          type: number
+        author:
+          type: string
+        comments:
+          type: string
+
+    modelFlowChartExtension:
+      required:
+      - id
+      type: object
+      properties:
+        id:
+          type: string
+        fixed_config:
+          type: object
+          description: user-defined fixed configurations
+          properties:
+            compatibility:
+              type: array
+              items:
+                type: string
+              description: list of model flow charts it is compatible with
+        install_script:
+          type: string
+          description: the address in DB where the installation script is stored
+        start_script:
+          type: string
+          description: where to retrieve the extension starting script
+        
+
+  securitySchemes:
+    application:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: http://example.com/oauth/token
+          scopes:
+            write: allows modifying resources
+            read: allows reading resources
+
+
+tags:
+  - name: model flow
+    description: manipulations of model flows 
+    externalDocs:
+      url: https://google.com
+  - name: model flow chart
+    description: manipulations of model flow charts 
+  - name: model flow chart node
+    description: manipulations of model flow chart nodes 
+  - name: model flow chart node component
+    description: manipulations of node components
+  - name: model flow chart edge
+    description: manipulations of model flow edges
+  - name: model flow chart extension
+    description: manipulation of model flow chart extensions
+  - name: model flow chart basic computation
+    description: perform simple basic computation using model flow chart's info
+  - name: model flow chart validation
+    
+
+
