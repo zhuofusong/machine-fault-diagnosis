@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\API",
+    "\\API\\api_doc",
+    "\\API\\client",
+    "\\backend",
+    "\\backend\\components",
+    "\\backend\\components\\model",
+    "\\backend\\components\\model\\model_by_form",
+    "\\backend\\components\\model\\model_by_form\\network_model",
+    "\\backend\\components\\model\\model_by_form\\network_model\\Bayesian_network"
+  ],
+  "SelectedNode": "\\backend\\components\\model",
+  "PreviewInSolutionExplorer": false
+}
