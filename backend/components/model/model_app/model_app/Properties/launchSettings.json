@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "modelapp": {
+      "commandName": "Project",
+      "commandLineArgs": "--mode=B"
+    }
+  }
+}

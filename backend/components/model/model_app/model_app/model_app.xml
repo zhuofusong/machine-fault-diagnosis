@@ -1,8 +1,13 @@
 <?xml version="1.0"?>
 <doc>
     <assembly>
-        <name>model_app</name>
+        <name>modelapp</name>
     </assembly>
     <members>
+        <member name="T:modelapp.DButils">
+            <summary>
+            A set of utility tools 
+            </summary>
+        </member>
     </members>
 </doc>
