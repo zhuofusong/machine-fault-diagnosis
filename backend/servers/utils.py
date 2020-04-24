@@ -14,7 +14,7 @@ else:
     log_level = logging.DEBUG
 
 # import all keys 
-with open(os.path.abspath(os.path.join(os.path.dirname(__file__),".env")),'r') as f:
+with open(os.path.abspath(os.path.join(os.path.dirname(__file__),"../.env")),'r') as f:
     pybrake_key = f.readlines()[0]
     pybrake_key = pybrake_key.split("=")[1]
 
