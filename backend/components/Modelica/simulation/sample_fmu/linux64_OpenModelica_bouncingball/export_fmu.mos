@@ -1,0 +1,5 @@
+//This Modelica script shows how to export a model as fmu file
+loadModel(Modelica);
+cd("C:/Users/Administrator/Documents/GitHub/machine-fault-diagnosis/backend/components/Modelica/simulation/sample_fmu");
+loadFile(getInstallationDirectoryPath() + "/share/doc/omc/testmodels/BouncingBall.mo");
+translateModelFMU(BouncingBall);
