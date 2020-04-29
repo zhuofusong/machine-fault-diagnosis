@@ -4,8 +4,14 @@ This folder currently contains simulation engines utilizing FMU format models. [
 The Python/C++/Java sample APPs contained in this folder demonstrates how to 
 use these engines. 
 
-Although FMU models can be imported and exported by the above listed software packages, please pay attention to the operation platform which generates it. 
-Some tools for processing FMU models only accept those from the same platform. As shown above, the two main platforms supported are Windows and Linux. 
-Therefore, please make sure that when you use this library on a platform, the FMUs need to be produced on the same type of platform. Installation of the dependencies is easy. 
-Please just follow the instruction found on corresponding packages. It is best that you install low level C++ libraries first, then other high level Python and C# libraries recursively.
+
+## Example FMUs. In the ```sample_fmu``` folder, there are linux and windows 64 platform -specific FMU files. Beware that the simulation wrapper needs to be called on the same kind of platform for the FMU model file to be corrected interpreted.
+
+## Simulation wrappers
+
+Although most commercial and open source software tools have built-in simulation, sensitivity analysis and optimization functionality, it is still useful to incorporate them into your own app ( in common language like Python, Java or C++ ). The wrappers below are for demo purpose, showing how to do it.
+
+## To run simulation based on FMU through Python wrapper, run
+```python3 wrapper_python/simulation_engine.py -f <fmu_file_path> -t <simulation_end_time> -r <simulation_result_file_path>```
+Then follow on-screen instruction to modify/review simulation options regarding solvers, etc. 
 

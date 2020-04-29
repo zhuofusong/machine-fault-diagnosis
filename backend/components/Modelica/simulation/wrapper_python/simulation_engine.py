@@ -21,6 +21,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument("-l","--pythonLibrary", help="which python library to use (pyfmi or fmpy)", type=str, default='pyfmi')
 parser.add_argument("-t","--simulationEndTime", help="simulation ending time", type=float)
 parser.add_argument("-f","--modelFile",help="FMU model file path", type=str)
+parser.add_argument("-r","--resultFile",help="Simulation result file path", type=str)
 args = parser.parse_args()
 
 if __name__ == "__main__":
@@ -30,6 +31,7 @@ if __name__ == "__main__":
         fmufilename = fmufile.split("/")
         fmufilename = fmufilename[len(fmufilename)-1]
         simulationEndTime = args.simulationEndTime
+        resultFile = args.resultFile
         pythonLibrary = args.pythonLibrary
         cont = True
     except Exception as e:
@@ -42,9 +44,10 @@ if __name__ == "__main__":
             stime = time.time()
             model = load_fmu(fmufile)
             opts = model.simulate_options()
+            opts["result_file_name"] = resultFile
             log.info("Model simulation options is as below. ")
-            log.info(opts)
-            opts1 = input("Please enter your new options in the same format, if any. Enter () to skip this:")
+            log.info(str(opts))
+            opts1 = input("Please enter your new options in the same format, if any. Enter () to skip this: ")
             if opts == "()":
                 log.info("Use default simulation options")
             else:
@@ -55,10 +58,9 @@ if __name__ == "__main__":
                     log.info("Please confirm your updated simulation options as below")
                     log.info(opts)
                     confirm = input("Please enter Yes or No: ")
-            res = model.simulate(final_time=simulationEndTime, options=opts)
+            log.info("Model successfully loaded")
+            res = model.simulate(final_time=simulationEndTime, options=opts)  
             log.info("Simulation succeeded. Save results in the simulation results folder")
-            with open(os.path.abspath(os.path.join(os.path.dirname(__file__),"simulation_results", pythonLibrary + '_' + fmufilename + '_' + str(int(stime)))), 'w') as f:
-                json.dump(res)
             etime = time.time()
             log.info("Simulation costs " + str(int(etime - stime)) + ' seconds')
         except Exception as e:
