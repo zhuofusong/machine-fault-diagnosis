@@ -1,14 +1,24 @@
-# This document summarizes algorithms incorporated in the engine, which are essential to the simulation of different types of physical models.
+# External algorithms and libraries
+
+This document summarizes external low-level algorithms incorporated in the engine, which are essential to the simulation of different types of physical models, as well as 
+high-level scientific computing libraries imported, which let users first create complex models, generate C/C++/Fortran simulation code and then optimize it using various tools introduced below.
+
+# Low-level algorithms
 
 ## Reduced precision algorithms
 
-Floating point emulation can save memory, energy and other resources by customizing the precision level of intermediate computation steps in a simulation. We incorporate several floating point emulation tools ( see the list below ). These tools all have convinient C++ APIs. Demostration of how to use these tools is in the ```demo``` folder. 
+Floating point emulation can save memory, energy and other resources by customizing the precision level of intermediate computation steps in a simulation. We incorporate several floating point emulation tools ( see the list below ). These tools all have convenient C++ APIs. Demonstration of how to use these tools is in the ```demo``` folder. 
+
+Libraries included :
+
+[FloatX](https://github.com/oprecomp/FloatX)
+[FlexFloat](https://github.com/oprecomp/flexfloat)
 
 ## Optimization algorithms
 
 ### Derivative-free optimization algorithms
 
-In many optimization problems arising from scientific, engineering and articial intelligence
+In many optimization problems arising from scientific, engineering and artificial intelligence
 applications, objective and constraint functions are available only as the output of a black-box or
 simulation oracle that does not provide derivative information. Such settings necessitate the use of
 methods for derivative-free, or zeroth-order, optimization([link to a survey paper](https://arxiv.org/pdf/1904.11585)). The engine provides a selection of derivative-free optimization algorithms:
@@ -32,7 +42,13 @@ Algorithmic differentiation (AD) describes the mathematical theory of how a comp
 
 ## FEM algorithms
 
+
+
 ## Parallel computing algorithms
 
 [OpenMP](https://www.openmp.org/)
-[]
+[OpenCL](https://www.khronos.org/opencl/)
+
+# High-level advanced scientific computing libraries
+
+[Octave]() Users can have seamless integration 

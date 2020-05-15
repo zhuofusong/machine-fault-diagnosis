@@ -1,0 +1,6 @@
+//This Modelica script shows how to export a model as fmu file
+loadModel(Modelica);
+//loadModel(BioChem);
+cd("/mnt/c/Users/Administrator/Documents/GitHub/machine-fault-diagnosis/backend/components/Modelica/simulation/sample_fmu/linux64_OpenModelica_biochem_example");
+loadFile("biochemExample.mo");
+translateModelFMU(biochem_example);
