@@ -1,0 +1,50 @@
+<map name="PowertrainWithRequirementChecks_SRA">
+<area shape="poly" coords="244,154,304,154,304,124,244,124" href="" alt="drive" title="External Torque"/>
+<area shape="poly" coords="334,154,364,154,364,124,334,124" href="" alt="motor" title="Inertia with Faults"/>
+<area shape="poly" coords="379,169,454,169,454,109,379,109" href="" alt="powertrain" title="Spring-Damper-Backlash"/>
+<area shape="poly" coords="469,154,499,154,499,124,469,124" href="" alt="machine" title="Inertia with Faults"/>
+<area shape="poly" coords="574,154,634,154,634,124,574,124" href="" alt="load" title="Rigid Friction"/>
+<area shape="poly" coords="34,139,94,139,94,79,34,79" href="" alt="desSpeed" title="Curve"/>
+<area shape="poly" coords="124,124,154,124,154,94,124,94" href="" alt="diff" title="Summing Junction"/>
+<area shape="poly" coords="184,184,184,229,214,229,214,184" href="" alt="driveSpeed" title="Motion Sensor"/>
+<area shape="poly" coords="169,139,229,139,229,79,169,79" href="" alt="torque" title="PI-Transfer Function"/>
+<area shape="poly" coords="49,499,109,499,109,439,49,439" href="" alt="runUpTime" title="Time Interval bw. 2 Events"/>
+<area shape="poly" coords="49,409,109,409,109,349,49,349" href="" alt="opSpeedBand" title="Band Check"/>
+<area shape="poly" coords="499,154,499,199,529,199,529,154" href="" alt="machineSpeed" title="Motion Sensor"/>
+<area shape="poly" coords="304,499,364,499,364,439,304,439" href="" alt="checkReqAccel" title="Check Req. (scalar)"/>
+<area shape="poly" coords="304,409,364,409,364,349,304,349" href="" alt="checkReqSpeed" title="Check Req. (scalar)"/>
+<area shape="poly" coords="184,349,244,349,244,289,184,289" href="" alt="testCondition" title="f(x)"/>
+<area shape="poly" coords="544,109,574,109,574,79,544,79" href="" alt="emergencyBrake" title="Friction against Absolute with Faults"/>
+<area shape="poly" coords="454,94,514,94,514,34,454,34" href="" alt="brakeControl" title="f(x)"/>
+<area shape="poly" coords="184,589,244,589,244,529,184,529" href="" alt="brakingTime" title="Time Interval bw. 2 Pulses"/>
+<area shape="poly" coords="49,589,109,589,109,529,49,529" href="" alt="stopBand" title="Band Check"/>
+<area shape="poly" coords="304,589,364,589,364,529,304,529" href="" alt="checkReqEmBrake" title="Check Req. (scalar)"/>
+<area shape="poly" coords="295,196,325,196,325,181,295,181" href="" alt="powerloss" title="Additional Loss (Continuous Fault, Rotation)"/>
+<area shape="poly" coords="303,138,318,138,303,138,318,138,320,140,305,140,320,140,305,140" href="" alt="connection1" title="Mechanical Connection (rotational)"/>
+<area shape="poly" coords="363,138,363,138,365,140,365,140" href="" alt="connection1" title="Mechanical Connection (rotational)"/>
+<area shape="poly" coords="333,138,318,138,333,138,318,138,320,140,335,140,320,140,335,140" href="" alt="connection1" title="Mechanical Connection (rotational)"/>
+<area shape="poly" coords="198,183,198,168,198,153,318,153,318,138,320,140,320,155,200,155,200,170,200,185" href="" alt="connection1" title="Mechanical Connection (rotational)"/>
+<area shape="poly" coords="378,138,363,138,348,138,363,138,365,140,350,140,365,140,380,140" href="" alt="connection1" title="Mechanical Connection (rotational)"/>
+<area shape="poly" coords="309,180,303,168,309,153,363,153,363,138,365,140,365,155,311,155,305,170,311,182" href="" alt="connection1" title="Mechanical Connection (rotational)"/>
+<area shape="poly" coords="468,138,453,138,468,138,453,138,455,140,470,140,455,140,470,140" href="" alt="connection2" title="Mechanical Connection (rotational)"/>
+<area shape="poly" coords="498,138,513,138,498,138,513,138,515,140,500,140,515,140,500,140" href="" alt="connection2" title="Mechanical Connection (rotational)"/>
+<area shape="poly" coords="573,138,558,138,543,138,528,138,530,140,545,140,560,140,575,140" href="" alt="connection2" title="Mechanical Connection (rotational)"/>
+<area shape="poly" coords="513,153,513,138,513,153,513,138,515,140,515,155,515,140,515,155" href="" alt="connection2" title="Mechanical Connection (rotational)"/>
+<area shape="poly" coords="513,138,528,138,513,138,528,138,530,140,515,140,530,140,515,140" href="" alt="connection2" title="Mechanical Connection (rotational)"/>
+<area shape="poly" coords="543,93,528,93,528,123,528,138,530,140,530,125,530,95,545,95" href="" alt="connection2" title="Mechanical Connection (rotational)"/>
+<area shape="poly" coords="93,93,108,93,108,108,123,108,125,110,110,110,110,95,95,95" href="" alt="connection4" title="Signal Connection"/>
+<area shape="poly" coords="138,123,138,138,138,243,198,243,198,228,200,230,200,245,140,245,140,140,140,125" href="" alt="connection5" title="Signal Connection"/>
+<area shape="poly" coords="153,108,168,108,153,108,168,108,170,110,155,110,170,110,155,110" href="" alt="connection3" title="Signal Connection"/>
+<area shape="poly" coords="228,108,243,108,273,108,273,123,275,125,275,110,245,110,230,110" href="" alt="connection6" title="Signal Connection"/>
+<area shape="poly" coords="108,468,108,468,123,468,138,453,303,453,305,455,140,455,125,470,110,470,110,470" href="" alt="connection8" title="Signal Connection"/>
+<area shape="poly" coords="243,318,243,318,258,318,273,333,273,378,273,378,275,380,275,380,275,335,260,320,245,320,245,320" href="" alt="connection10" title="Signal Connection"/>
+<area shape="poly" coords="303,393,288,393,288,393,273,378,275,380,290,395,290,395,305,395" href="" alt="connection10" title="Signal Connection"/>
+<area shape="poly" coords="303,483,288,483,273,468,273,408,273,378,275,380,275,410,275,470,290,485,305,485" href="" alt="connection10" title="Signal Connection"/>
+<area shape="poly" coords="513,198,513,258,33,258,33,378,35,380,35,260,515,260,515,200" href="" alt="connection7" title="Signal Connection"/>
+<area shape="poly" coords="48,468,33,468,35,470,50,470" href="" alt="connection7" title="Signal Connection"/>
+<area shape="poly" coords="48,378,33,378,48,378,33,378,35,380,50,380,35,380,50,380" href="" alt="connection7" title="Signal Connection"/>
+<area shape="poly" coords="33,378,33,468,33,468,35,470,35,470,35,380" href="" alt="connection7" title="Signal Connection"/>
+<area shape="poly" coords="48,558,33,558,33,483,33,468,35,470,35,485,35,560,50,560" href="" alt="connection7" title="Signal Connection"/>
+<area shape="poly" coords="108,543,123,543,138,573,183,573,185,575,140,575,125,545,110,545" href="" alt="connection11" title="Signal Connection"/>
+<area shape="poly" coords="243,558,258,558,258,558,273,543,303,543,305,545,275,545,260,560,260,560,245,560" href="" alt="connection12" title="Signal Connection"/>
+<area shape="poly" coords="108,393,123,393,123,393,153,363,303,363,305,365,155,365,125,395,125,395,110,395" href="" alt="connection9" title="Signal Connection"/></map>
