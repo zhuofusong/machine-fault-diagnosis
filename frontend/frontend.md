@@ -1,1 +1,7 @@
 # Introduction of frontend
+
+Frontend technology for the physical engine is inspired by [LabVIEW customizable UI](https://www.ni.com/en-gb/support/documentation/supplemental/08/building-labview-user-interfaces.html) and a list of [WebAssembly/JavaScript libraries]() which help compile sophisticated 
+physical engines written in C/C++ to formats that can be run directly in browsers. This makes the physical engine cross-platform. 
+
+UI for the machine learning and statistical data analysis module is built using the [Felgo framework](https://felgo.com/), which is an extension of [Qt](https://www.qt.io/). Since the code is open source, it is easy 
+for users to modify and create it.
