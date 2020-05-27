@@ -31,6 +31,12 @@ The following links contain detailed description about software package dependen
 - [The Visit package developed by LLNL](https://wci.llnl.gov/simulation/computer-codes/visit) is an open Source, interactive, scalable, visualization, animation and analysis tool, which is 
   capable of visualizing data from over 120 different scientific data formats. 
 
+Other more general and light-weighted software packages:
+
+- [Sponsored projects by NUMFOCUS](https://numfocus.org/sponsored-projects)
+
+- [light-weighted packages](https://joss.theoj.org/)
+
 ### By equation type
 
 - [NIST](https://dlmf.nist.gov/software/) maintains an index of math software programs.
@@ -60,7 +66,7 @@ The following open source computing engines are provided in the test environment
 
 #### Optimization
 
-- [NEOS]()
+- [NEOS](https://neos-guide.org/Optimization-Guide)
 
 #### High-performance computing
 
@@ -75,3 +81,4 @@ The following open source computing engines are provided in the test environment
 
 - [This link](http://www.cpc.cs.qub.ac.uk/) contains is an archive for physics and physical chemistry algorithms
 
+#### 

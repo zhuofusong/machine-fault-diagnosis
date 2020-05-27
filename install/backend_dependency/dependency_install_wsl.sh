@@ -49,3 +49,12 @@ sudo make PETSC_DIR=/mnt/c/Users/Administrator/Documents/Computing_engines/petsc
 # Fortran example src/snes/tutorials/ex5f run successfully with 1 MPI process
 # Completed test examples
 printf "End of the installation of PESTc\n==========================\n"
+
+#################################
+# install FEniCS
+#################################
+sudo apt-get install software-properties-common
+sudo add-apt-repository ppa:fenics-packages/fenics
+sudo apt-get update
+sudo apt-get install --no-install-recommends fenics
+
