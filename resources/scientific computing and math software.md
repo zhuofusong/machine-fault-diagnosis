@@ -26,10 +26,23 @@ The following links contain detailed description about software package dependen
 
 - [This list](https://people.maths.ox.ac.uk/trefethen/tools.html) is compiled by Oxford researcher and is an index of indices of general and specialized scientific computing code. 
 
-- [The Lawrence Livermore National Laboratory (LLNL) software catalog](https://software.llnl.gov/)
+- [Trilinos suite of software libraries](https://trilinos.github.io/)
 
-- [The Visit package developed by LLNL](https://wci.llnl.gov/simulation/computer-codes/visit) is an open Source, interactive, scalable, visualization, animation and analysis tool, which is 
-  capable of visualizing data from over 120 different scientific data formats. 
+- U.S. national laboratories open source code
+  - [The Lawrence Livermore National Laboratory (LLNL) software catalog](https://software.llnl.gov/)
+    - [The Visit package developed by LLNL](https://wci.llnl.gov/simulation/computer-codes/visit) is an open Source, interactive, scalable, visualization, animation and analysis tool, which is 
+  capable of visualizing data from over 120 different scientific data formats
+  - [The Lawrence Berkeley National Laboratory](https://crd.lbl.gov/software/)
+  - [The Ames National Laboratory](https://www.ameslab.gov/work-us/open-source-software)
+  - [The Argonne National Laboratory MCS software](https://www.anl.gov/mcs/mcs-software-0)
+  - [The Brookhaven National Laboratory](https://www.bnl.gov/compsci/software.php)
+  - [The Fermi National Laboratory](https://computing.fnal.gov/scientific_software/)
+  - [The Idaho National Laboratory](https://github.com/idaholab)
+  - [The Los Alamos National Laboratory](https://www.lanl.gov/software/open-source-software.php)
+  - [The Oak Ridge National Laboratory](https://www.olcf.ornl.gov/for-users/software/)
+
+- [Software libraries published in SoftwareX journal](https://github.com/ElsevierSoftwareX?page=1)
+
 
 Other more general and light-weighted software packages:
 
@@ -67,6 +80,7 @@ The following open source computing engines are provided in the test environment
 #### Optimization
 
 - [NEOS](https://neos-guide.org/Optimization-Guide)
+- [Automatic differentiation portal](http://www.autodiff.org/?module=Tools)
 
 #### High-performance computing
 

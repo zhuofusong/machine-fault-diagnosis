@@ -10,13 +10,20 @@ high-level scientific computing libraries imported, which let users first create
 #### On computing algorithms and theory
 - [Texts in Computational Science and Engineering](https://www.springer.com/series/5151?detailsPage=titles) contains titles on various topics.
 - [Simulation Foundations, Methods and Applications](https://www.springer.com/series/10128?detailsPage=titles)
-- []()
+- [Modeling and Simulation in Science, Engineering and Technology](https://www.springer.com/series/4960?detailsPage=titles)
+- 
 
 #### On applications
 
 - [Modeling and Simulation in Science, Engineering and Technology](https://www.springer.com/series/4960?detailsPage=titles)
 - [Mathematics in Industry](https://www.springer.com/series/4650?detailsPage=titles)
-- []()
+- [Texts in applied mathematics](https://www.springer.com/series/1214?detailsPage=titles)
+- [Applied Mathematical Sciences](https://www.springer.com/series/34?detailsPage=titles)
+- [Surveys and Tutorials in the Applied Mathematical Sciences](https://www.springer.com/series/7219?detailsPage=titles)
+- [INdAM Series](https://www.springer.com/series/10283?detailsPage=titles)
+- [Mechanical Engineering Series](https://www.springer.com/series/1161?detailsPage=titles)
+- [Lecture Notes in Computer Science and Engineering](https://link.springer.com/search?facet-series=%223527%22&facet-content-type=%22Book%22)
+- 
 
 ## Reduced precision algorithms
 
